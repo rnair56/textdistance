@@ -301,8 +301,11 @@ class JaroWinkler(_BaseSimilarity):
         # adjust for up to first 4 chars in common
         j = min(min_len, 4)
         i = 0
-        while i < j and s1[i] == s2[i] and s1[i]:
-            i += 1
+        try:
+            while i < j and s1[i] == s2[i] and s1[i]:
+                i += 1
+        except IndexError:
+            pass
         if i:
             weight += i * prefix_weight * (1.0 - weight)
 
