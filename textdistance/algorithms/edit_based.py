@@ -294,7 +294,7 @@ class JaroWinkler(_BaseSimilarity):
         # stop to boost if strings are not similar
         if not self.winklerize:
             return weight
-        if weight <= 0.7 or s1_len <= 3 or s2_len <= 3:
+        if weight <= 0.7:
             return weight
 
         # winkler modification
